@@ -18,3 +18,4 @@ local.properties
 /.idea/misc.xml
 /.idea/migrations.xml
 /.idea/gradle.xml
+/.kotlin/errors/*.log
