@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "common"
 include(":common")
-include(":app")
+//include(":app")
