@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -24,11 +23,9 @@ import com.mrozon.common.compose.MultiLanguagePreview
 import com.mrozon.common.compose.ThemePreviews
 import com.mrozon.common.compose.component.MyText
 import com.mrozon.common.compose.model.AwesomeText
+import com.mrozon.common.core.mvi.handleSideEffect
 import com.mrozon.myapplication34568345.R
 import com.mrozon.myapplication34568345.ui.theme.MyApplication34568345Theme
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.onEach
-import timber.log.Timber
 
 @Composable
 fun HomeScreen(
@@ -36,14 +33,14 @@ fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(),
 ){
     val context = LocalContext.current
-    LaunchedEffect(viewModel.effect) {
-        viewModel.effect.onEach { effect ->
-            when(effect) {
-                HomeContract.SideEffect.RememberCounter ->
-                    Toast.makeText(context, "Hurray!!!", LENGTH_SHORT).show()
-            }
-        }.collect()
+
+    viewModel.effect.handleSideEffect { effect ->
+        when(effect) {
+            HomeContract.SideEffect.RememberCounter ->
+                Toast.makeText(context, "Hurray!!!", LENGTH_SHORT).show()
+        }
     }
+
     HomeScreen(
         state = viewModel.viewState.value,
         modifier = modifier,
