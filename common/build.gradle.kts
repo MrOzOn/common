@@ -48,3 +48,14 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+
+publishing {
+    publications {
+        create<MavenPublication>("common") {
+            groupId = "com.github.MrOzOn"
+            artifactId = "common"
+            version = "0.1.3"
+        }
+
+    }
+}
