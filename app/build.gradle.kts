@@ -17,6 +17,12 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += "room.schemaLocation" to  "$projectDir/schemas"
+            }
+        }
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -49,16 +55,19 @@ dependencies {
     coreLibraryDesugaring(libs.desugar.jdk.libs)
     // common android+compose dependencies
     implementation(libs.bundles.common)
+    implementation(libs.kotlin.datetime)
     implementation(platform(libs.androidx.compose.bom))
     // using material3
     implementation(libs.androidx.material3)
     implementation(libs.material.icons.extended)
     // using HILT
     implementation(libs.hilt.android)
-//    implementation(libs.androidx.adaptive.android)
     ksp(libs.hilt.compiler)
     // hilt and navigation in compose
     implementation(libs.hilt.navigation.compose)
+    // Room
+    ksp(libs.room.compiler)
+    implementation(libs.room.ktx)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
