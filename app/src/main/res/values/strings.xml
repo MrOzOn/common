@@ -2,4 +2,5 @@
     <string name="app_name">My Application34568345</string>
     <string name="decrease">-</string>
     <string name="increase">+</string>
+    <string name="created">created %s</string>
 </resources>

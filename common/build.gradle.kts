@@ -24,6 +24,7 @@ kotlin {
                 implementation(libs.androidx.lifecycle.runtime.ktx)
                 implementation(libs.logging.timber)
                 implementation(libs.androidx.material3)
+                implementation(libs.kotlin.datetime)
                 implementation(platform(libs.androidx.compose.bom))
                 implementation(libs.androidx.ui.tooling.preview)
 
