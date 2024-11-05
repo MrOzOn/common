@@ -2,6 +2,7 @@ package com.mrozon.myapplication34568345.di
 
 import android.content.Context
 import androidx.room.Room
+import com.mrozon.myapplication34568345.data.db.MIGRATION_1_2
 import com.mrozon.myapplication34568345.data.db.ToDoDatabase
 import com.mrozon.myapplication34568345.data.db.ToDoDatabase.Companion.DB_NAME
 import dagger.Module
@@ -26,5 +27,7 @@ class DatabaseModule {
         context,
         ToDoDatabase::class.java,
         DB_NAME
-    ).build()
+    )
+        .addMigrations(MIGRATION_1_2)
+        .build()
 }

@@ -18,4 +18,7 @@ data class ToDoItemDb(
 
     @ColumnInfo(name = "todo_created")
     val created: Long,
+
+    @ColumnInfo(name = "todo_completed")
+    val completed: Boolean,
 )

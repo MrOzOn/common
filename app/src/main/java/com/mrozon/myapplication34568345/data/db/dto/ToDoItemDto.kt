@@ -9,12 +9,14 @@ fun ToDoItemDb.toDomain() = ToDoItem(
     id = this.id,
     title = this.title,
     content = this.content,
-    created = Instant.fromEpochMilliseconds(this.created)
+    created = Instant.fromEpochMilliseconds(this.created),
+    completed = this.completed
 )
 
 fun ToDoItem.toDb() = ToDoItemDb(
     id = this.id,
     title = this.title,
     content = this.content,
-    created = this.created.toEpochMilliseconds()
+    created = this.created.toEpochMilliseconds(),
+    completed = this.completed
 )

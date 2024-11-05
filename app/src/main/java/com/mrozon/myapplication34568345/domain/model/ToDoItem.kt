@@ -7,4 +7,5 @@ data class ToDoItem(
     val title: String,
     val content: String,
     val created: Instant,
+    val completed: Boolean,
 )
