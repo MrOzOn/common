@@ -6,7 +6,7 @@ import com.mrozon.myapplication34568345.data.db.dao.ToDoItemDao
 import com.mrozon.myapplication34568345.data.db.model.ToDoItemDb
 
 
-@Database(entities = [ToDoItemDb::class], version = 1)
+@Database(entities = [ToDoItemDb::class], version = 1, exportSchema = true)
 abstract class ToDoDatabase: RoomDatabase(){
     abstract fun toDoItemDaoDAO(): ToDoItemDao
 

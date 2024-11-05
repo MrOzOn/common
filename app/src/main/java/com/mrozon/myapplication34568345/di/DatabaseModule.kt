@@ -15,6 +15,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class DatabaseModule {
     @Provides
+    @Singleton
     fun provideToDoItemDao(database: ToDoDatabase) = database.toDoItemDaoDAO()
 
     @Provides

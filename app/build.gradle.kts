@@ -17,10 +17,8 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments += "room.schemaLocation" to  "$projectDir/schemas"
-            }
+        ksp {
+            arg("room.schemaLocation", "$projectDir/schemas")
         }
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
