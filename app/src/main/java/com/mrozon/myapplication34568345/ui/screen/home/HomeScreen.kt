@@ -19,12 +19,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.mrozon.common.compose.MultiLanguagePreview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.mrozon.common.compose.ThemePreviews
 import com.mrozon.common.compose.component.MyText
 import com.mrozon.common.compose.model.AwesomeText
 import com.mrozon.common.core.mvi.handleSideEffect
 import com.mrozon.myapplication34568345.R
+import com.mrozon.myapplication34568345.Route
+import com.mrozon.myapplication34568345.ui.screen.list.ListScreen
 import com.mrozon.myapplication34568345.ui.theme.MyApplication34568345Theme
 
 @Composable
@@ -32,6 +36,19 @@ fun HomeScreen(
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = hiltViewModel(),
 ){
+    val navBarController = rememberNavController()
+    NavHost(
+        navBarController,
+        startDestination = Route.ListToDo
+    ) {
+        composable<Route.ListToDo> {
+            ListScreen(navController = navBarController)
+        }
+        composable<Route.DetailToDo> {
+
+        }
+    }
+
     val context = LocalContext.current
 
     viewModel.effect.handleSideEffect { effect ->

@@ -3,4 +3,8 @@
     <string name="decrease">-</string>
     <string name="increase">+</string>
     <string name="created">created %s</string>
+    <string name="empty">Empty list</string>
+    <string name="add_first_item">Let\'s add the first todo</string>
+    <string name="error">ERROR</string>
+    <string name="close">Close</string>
 </resources>
